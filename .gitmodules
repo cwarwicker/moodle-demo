@@ -4,9 +4,9 @@
 [submodule "blocks/quick_user"]
 	path = blocks/quick_user
 	url = https://github.com/cwarwicker/moodle-block_quick_user
-[submodule "blocks/gradetracker"]
-	path = blocks/gradetracker
-	url = https://github.com/cwarwicker/moodle-block_gradetracker
+# [submodule "blocks/gradetracker"]
+# 	path = blocks/gradetracker
+# 	url = https://github.com/cwarwicker/moodle-block_gradetracker
 [submodule "blocks/elbp"]
 	path = blocks/elbp
 	url = https://github.com/cwarwicker/moodle-block_elbp
