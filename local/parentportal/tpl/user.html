@@ -1,0 +1,94 @@
+<?php if(!defined('PARENT_PORTAL')) exit; ?>
+<?php if (!$Portal->isAdmin()) exit; ?>
+
+<?php if($account): ?>
+
+    <?php if ($account->id <> $Portal->user->id): ?>
+    
+    <?= $Portal->displayAnyErrors() ?>
+    <?= $Portal->displayAnySuccess() ?>
+
+    <form action="<?= $Portal->www ?>?page=user&action=updateuser&user=<?= $account->id ?>" method="post">
+
+        <div id="user-settings">
+
+            <table>
+
+                <tr>
+                    <td><?= $string['firstname'] ?>:</td>
+                    <td><input type="text" name="update_firstname" value="<?= $account->firstname ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['lastname'] ?>:</td>
+                    <td><input type="text" name="update_lastname" value="<?= $account->lastname ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['email'] ?>:</td>
+                    <td><input type="text" name="update_email" value="<?= $account->email ?>" /></td>
+                </tr>
+
+                 <tr>
+                    <td><?= $string['newpw'] ?>:</td>
+                    <td><input id="new_pw" type="password" name="update_new_password" value="" style="width:85%" /> <input type='checkbox' onchange='pp_showHidePassword("new_pw");' title="<?= $string['showhide'] ?>" /></td>
+                </tr>
+
+            </table>
+
+
+            <table>
+
+                <tr>
+                    <td><?= $string['accountconfirmed'] ?>:</td>
+                    <td>
+                        <div class="roundedOne">
+                            <input id="updateConfirmed" type="checkbox" value="1" name="update_confirmed" <?= ($account->confirmed) ? 'checked' : ''; ?> />
+                            <label for="updateConfirmed"></label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['accountdeleted'] ?>:</td>
+                    <td>
+                        <div class="roundedOne">
+                            <input id="updateDeleted" type="checkbox" value="1" name="update_deleted" <?= ($account->deleted) ? 'checked' : ''; ?> />
+                            <label for="updateDeleted"></label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['isadmin'] ?>:</td>
+                    <td>
+                        <div class="roundedOne">
+                            <input id="updateAdmin" type="checkbox" value="1" name="update_is_admin" <?= ($account->isadmin) ? 'checked' : ''; ?> />
+                            <label for="updateAdmin"></label>
+                        </div>
+                    </td>
+                </tr>
+
+
+            </table>
+
+            <br class="cl" />
+
+            <p class="c"><input type="submit" class='btn' name="update_user" value="<?= $string['save'] ?>" /></p>
+
+        </div>
+
+
+    </form>
+
+    <?php else: ?>
+    
+    <?= $string['canteditownaccount'] ?>
+    
+    <?php endif; ?>
+    
+<?php else: ?>
+
+<?= $string['nosuchuser'] ?>
+
+<?php endif; ?>

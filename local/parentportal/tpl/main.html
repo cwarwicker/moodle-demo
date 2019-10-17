@@ -1,0 +1,156 @@
+<div id='snapshot'>
+    
+    <?php if ($Portal->getStudent()): ?>
+    
+    <?= $StudentProfile->display( array('noBadges' => true) ) ?>
+    <br><br>
+        
+    
+    <?php if ($Portal->isPluginEnabled('attendance')): ?>
+        <div id='snapshot-attendance'>
+
+            <div class='title-bar'>
+                <?= $string['attendancesnapshot'] ?>
+            </div>
+
+            <div class='section'>
+                <div class='c'>
+                    <img src='<?= $CFG->wwwroot ?>/blocks/elbp/plugins/Attendance/pix/bar/overall.php?studentID=<?= $Portal->getStudentID() ?>' alt='att' />
+                </div>
+            </div>
+
+        </div>
+
+        <br><br>
+    <?php endif; ?>
+    
+    <?php if ($Portal->isPluginEnabled('coursereports') && $reports): ?>
+    
+        <div id='snapshot-coursereports'>
+
+            <div class='title-bar'>
+                <?= $string['coursereportssnapshot'] ?>
+            </div>
+
+            <div class='section'>
+
+                <table class='snapshot-report'>
+
+                    <?php foreach($reports as $report): ?>
+
+                        <tr>
+                            <td><img src="<?= $CFG->wwwroot ?>/local/parentportal/pix/reports_hover.png" style="width:16px;" /></td>
+                            <td><?= $report->getCreatedDate('D jS M Y') ?></td>
+                            <td><a href="<?= $CFG->wwwroot ?>/blocks/elbp/print.php?plugin=<?= $CR->getID() ?>&object=<?= $report->getID() ?>&student=<?= $report->getStudentID() ?>&type=periodical" target="_blank"><?= $report->getName() ?></a></td>
+                        </tr>
+
+                    <?php endforeach; ?>
+
+                </table>
+
+            </div>
+
+        </div>
+    
+    <?php endif; ?>
+
+    
+    <?php if ($Portal->isPluginEnabled('comments') && $comments): ?>
+    
+        <div id='snapshot-comments'>
+
+            <div class='title-bar'>
+                <?= $string['commentssnapshot'] ?>
+            </div>
+
+            <div class='section'>
+
+                <table class='snapshot-comment'>
+
+                    <?php foreach($comments as $comment): ?>
+
+                    <tr>
+                        <td>
+                            <?php if ($comment->getPositiveImage()): ?>
+                                <a href="<?= $Portal->www ?>?page=comments&studentid=<?= $Portal->getStudentID() ?>#comment-<?= $comment->getID() ?>"><img src="<?= $comment->getPositiveImage() ?>" style="width:24px;"/></a>
+                            <?php endif; ?>
+                        </td>
+                        <td><a href="<?= $Portal->www ?>?page=comments&studentid=<?= $Portal->getStudentID() ?>#comment-<?= $comment->getID() ?>"><?= $comment->getDate('D jS M Y') ?></a></td>
+                        <td><a href="<?= $Portal->www ?>?page=comments&studentid=<?= $Portal->getStudentID() ?>#comment-<?= $comment->getID() ?>"><?= $comment->getAttribute($commentsObj->getTitleAttribute()) ?></a></td>
+                    </tr>
+
+                    <?php endforeach; ?>
+
+                </table>
+
+            </div>
+
+        </div>
+    
+    <?php endif; ?>
+    
+    
+    <?php if ($Portal->isPluginEnabled('grades') && isset($quals) && $quals): ?>
+            
+    <div id='snapshot-gradetracker'>
+        
+        <div class='title-bar'>
+            <?= $string['gradetrackersnapshot'] ?>
+        </div>
+        
+        <div class='section'>
+            
+            <table class='snapshot-qual'>
+
+                <?php if (isset($quals['block'])): ?>
+                
+                    <tr>
+                        <th><?= get_string('qualification', 'block_gradetracker') ?></th>
+                    </tr>
+                    
+                    <?php foreach($quals['quals'] as $qual): ?>
+                    
+                        <tr>
+                            <td><a href="<?= $CFG->wwwroot ?>/local/parentportal/?page=grades&studentid=<?= $quals['student']->id ?>&qualID=<?= $qual->getID() ?>"><?= $qual->getShortDisplayName() ?></a></td>
+                        </tr>
+                    
+                    <?php endforeach; ?>
+                
+                <?php else: ?>
+                
+                    <tr>
+                        <th><?= get_string('qualification', 'block_bcgt') ?></th>
+                        <th><?= get_string('predictedgrade', 'block_bcgt') ?></th>
+                        <th><?= get_string('targetgrade', 'block_bcgt') ?></th>
+                    </tr>
+
+                    <?php foreach($quals as $qual): ?>
+
+                        <tr>
+                            <td><a href="<?= $CFG->wwwroot ?>/local/parentportal/?page=grades&studentid=<?= $qual->get_studentID() ?>&qualID=<?= $qual->get_id() ?>"><?= $qual->get_short_display_name(true) ?></a></td>
+                            <td><?= $qual->predictedgrade ?></td>
+                            <td><?= $qual->targetgrade ?></td>
+                        </tr>
+
+                    <?php endforeach; ?>
+                
+                <?php endif; ?>
+
+            </table>
+            
+        </div>
+        
+    </div>
+    
+    <?php endif; ?>
+    
+    
+    <br class='cl' /><br>
+    
+    <?php else: ?>
+    
+    <p class='c'><?= $string['pleaseselectstudent'] ?></p>
+    
+    <?php endif; ?>
+    
+</div>

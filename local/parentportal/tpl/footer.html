@@ -1,0 +1,49 @@
+</div>
+</div>
+</div>
+</div>
+
+<div id='elbp_popup'></div>
+<div id='elbp_dialogue' title='Title'><div></div></div>
+
+<span style='display:none;'>bedcoll-parent-portal</span>
+
+<script>
+    
+    
+$(document).ready( function(){
+    
+    $('.datePicker').datepicker({
+        dateFormat: '<?= $Portal->getDateFormat() ?>',
+        changeYear: true,
+        changeMonth: true,
+        yearRange: "-100:+0"
+    });
+    
+    $('.datePicker').attr('placeholder', '<?= $Portal->getDateFormat() ?>');
+    
+    $('.tooltip').tooltip();
+        
+} );
+    
+</script>
+
+
+</body>
+
+
+<script type="text/javascript"> 
+var $buoop = {}; 
+$buoop.ol = window.onload; 
+window.onload=function(){ 
+ try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+ var e = document.createElement("script"); 
+ e.setAttribute("type", "text/javascript"); 
+ e.setAttribute("src", "//browser-update.org/update.js"); 
+ document.body.appendChild(e); 
+} 
+</script> 
+
+	
+
+</html>

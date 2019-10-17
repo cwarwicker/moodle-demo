@@ -1,0 +1,49 @@
+<table id="elbp_portal_requests">
+    
+    <tr style="<?= $obj->getHeaderStyle() ?>">
+        <th><?= $string['user'] ?></th>
+        <th><?= $string['email'] ?></th>
+        <th><?= $string['time'] ?></th>
+        <th><?= $string['status'] ?></th>
+        <?php if (\elbp_has_capability('block/elbp:portal_update_request', $access)): ?>
+            <th><?= $string['update'] ?></th>
+        <?php endif; ?>
+    </tr>
+    
+    <?php if ($requests): ?>
+    
+        <?php foreach($requests as $request): ?>
+        
+        <tr id="request_row_<?= $request->id ?>">
+            <td><?= elbp_html($request->firstname) ?> <?= elbp_html($request->lastname) ?></td>
+            <td><?= elbp_html($request->email) ?></td>
+            <td><?= date('D jS M Y, H:i', $request->requesttime) ?></td>
+            <td>
+                <img id="request_image_<?= $request->id ?>" src="<?= $Portal->www ?>pix/elbp/<?= $Portal->getStatusImage($request->status) ?>" alt="<?= $Portal->getStatusName($request->status) ?>" title="<?= $Portal->getStatusName($request->status) ?>" />
+                <br>
+                <small id="request_status_<?= $request->id ?>">(<?= $Portal->getStatusName($request->status) ?>)</small>
+            </td>         
+            <?php if (\elbp_has_capability('block/elbp:portal_update_request', $access) && $request->status >= 0): ?>
+            <td>
+                <select id='update_status_<?= $request->id ?>'>
+                    <?php for($i = 1; $i >= -2; $i--): ?>
+                    <option value='<?= $i ?>' <?= ($request->status == $i) ? 'selected' : ''; ?> ><?= $Portal->getStatusName($i) ?></option>
+                    <?php endfor; ?>
+                </select> <button onclick="pp_update_status(<?= $request->id ?>, '<?= $request->password ?>', $('#update_status_<?= $request->id ?>').val());return false;" type="button" class="elbp_b" style="width:75px;padding:4px;"><?= $string['update'] ?></button>
+                <br>
+                <span id="request_loading_<?= $request->id ?>"></span>
+            </td>
+            <?php endif; ?>
+        </tr>
+        
+        <?php endforeach; ?>
+    
+    <?php else: ?>
+    
+    <tr>
+        <td colspan='5' class='elbp_centre'><?= $string['norequestsfound'] ?></td>
+    </tr>
+    
+    <?php endif; ?>
+    
+</table>

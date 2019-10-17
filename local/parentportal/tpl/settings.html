@@ -1,0 +1,210 @@
+<?= $Portal->displayAnyErrors() ?>
+<?= $Portal->displayAnySuccess() ?>
+
+<span class="title"><?= $string['accountsettings'] ?></span><br><br>
+
+<form action="<?= $Portal->www ?>?page=settings&action=updateprofile" method="post">
+      
+    <div id="account-settings">
+        
+        <table>
+
+            <tr>
+                <td><?= $string['firstname'] ?>:</td>
+                <td><input type="text" name="update_firstname" value="<?= $Portal->user->firstname ?>" /></td>
+            </tr>
+
+            <tr>
+                <td><?= $string['lastname'] ?>:</td>
+                <td><input type="text" name="update_lastname" value="<?= $Portal->user->lastname ?>" /></td>
+            </tr>
+
+            <tr>
+                <td><?= $string['email'] ?>:</td>
+                <td><input type="text" name="update_email" value="<?= $Portal->user->email ?>" /></td>
+            </tr>
+
+        </table>
+        
+        
+        <table>
+
+            <tr>
+                <td><?= $string['currentpw'] ?>:</td>
+                <td><input type="password" name="update_current_password" value="" /></td>
+            </tr>
+
+            <tr>
+                <td><?= $string['newpw'] ?>:</td>
+                <td><input type="password" name="update_new_password" value="" /></td>
+            </tr>
+
+            <tr>
+                <td><?= $string['confirmpw'] ?>:</td>
+                <td><input type="password" name="update_confirm_password" value="" /></td>
+            </tr>
+
+        </table>
+        
+        <br class="cl" />
+        
+        <p class="c"><input type="submit" class='btn' name="update_profile" value="<?= $string['save'] ?>" /></p>
+    
+    </div>
+        
+</form>
+
+<br><br>
+
+<?php if ($Portal->isAdmin()): ?>
+
+<span class="title"><?= $string['sitesettings'] ?></span><br><br>
+
+
+<form action="<?= $Portal->www ?>?page=settings&action=updatesettings" method="post" enctype="multipart/form-data">
+
+    <div id="site-settings">
+    
+        <table>
+
+            <tr>
+                <td><?= $string['sitetitle'] ?></td>
+                <td>
+                    <input type='text' name='site_title' value='<?= $Portal->getSetting('site_title') ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['sitelogo'] ?><br><small><?= $string['help:sitelogo'] ?></small></td>
+                <td>
+                    <input type='text' name='site_logo' value='<?= $Portal->getLogoURL() ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['accessrequests'] ?><br><small><?= $string['help:accessrequests'] ?></small></td>
+                <td>
+                    <select name='accessrequests_type'>
+                        <option value=''></option>
+                        <option value='idnumber' <?= ($Portal->getSetting('accessrequests_type') == 'idnumber') ? 'selected' : ''; ?> ><?= $string['idnumberonly'] ?></option>
+                        <option value='idnumberdob' <?= ($Portal->getSetting('accessrequests_type') == 'idnumberdob') ? 'selected' : ''; ?> ><?= $string['idnumberdob'] ?></option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['dobfieldlocation'] ?><br><small><?= $string['help:dobfieldlocation'] ?></small></td>
+                <td>
+                    <select name='dob_location'>
+                        <option value='custom' <?= (!$Portal->getSetting('dob_location') || $Portal->getSetting('dob_location') == 'custom') ? 'selected' : ''; ?>><?= $string['customprofilefield'] ?></option>
+                        <option value='db' <?= ($Portal->getSetting('dob_location') == 'db') ? 'selected' : ''; ?>><?= $string['manualtodbtable'] ?></option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['dobprofilefield'] ?><br><small><?= $string['help:dobprofilefield'] ?></small></td>
+                <td>
+                    <input type='text' class='small' name='dob_field' value='<?= $Portal->getSetting('dob_field') ?>' />
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td><?= $string['dobformat'] ?><br><small><?= $string['help:dobformat'] ?></small></td>
+                <td>
+                    <input type='text' class='small' name='dob_format' value='<?= $Portal->getDateFormat() ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['signupenabled'] ?><br><small><?= $string['help:signupenabled'] ?></small></td>
+                <td>
+                    <input type='checkbox' name='signup_enabled' value='1' <?= ($Portal->getSetting('signup_enabled') == 1) ? 'checked' : '' ?> />
+                </td>
+            </tr>
+            
+            <tr>
+            
+             <tr>
+                <td><?= $string['signupcode'] ?><br><small><?= $string['help:signupcode'] ?></small></td>
+                <td>
+                    <input type='text' name='signup_code' value='<?= $Portal->getSetting('signup_code') ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['idnumber'] ?><br><small><?= $string['help:idnumber'] ?></small></td>
+                <td>
+                    <select name='idnumber_field'>
+                        <option value=''></option>
+                        <option value='username' <?= ($Portal->getSetting('idnumber_field') == 'username') ? 'selected' : ''; ?>>username</option>
+                        <option value='idnumber' <?= ($Portal->getSetting('idnumber_field') == 'idnumber') ? 'selected' : ''; ?>>idnumber</option>
+                    </select>
+                </td>
+            </tr>
+                        
+            <tr>
+                <td><?= $string['studentssql'] ?><br><small><?= $string['help:studentssql'] ?></small></td>
+                <td>
+                    <small>SELECT u.* FROM {user} u WHERE u.deleted = 0 AND u.confirmed = 1 AND </small><br>
+                    <textarea name='students_sql'><?= $Portal->getSetting('students_sql') ?></textarea><br>
+                    <small>ORDER BY u.lastname, u.firstname</small>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['adminuser'] ?><br><small><?= $string['help:adminuser'] ?></small></td>
+                <td>
+                    <input type='text' class='small' name='admin_user' value='<?= $Portal->getSetting('admin_user') ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['supportemail'] ?><br><small><?= $string['help:supportemail'] ?></small></td>
+                <td>
+                    <input type='text' class='small' name='support_email' value='<?= $Portal->getSetting('support_email') ?>' />
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['plugins'] ?><br><small><?= $string['help:plugins'] ?></small></td>
+                <td>
+                    <select name="plugins_enabled[]" multiple>
+                        
+                        <option value="grades" <?= ($Portal->isPluginEnabled('grades') ? 'selected' : '') ?> >Gradetracker</option>
+                        <option value="attendance" <?= ($Portal->isPluginEnabled('attendance') ? 'selected' : '') ?> >Attendance</option>
+                        <option value="coursereports" <?= ($Portal->isPluginEnabled('coursereports') ? 'selected' : '') ?> >Course Reports</option>
+                        <option value="timetable" <?= ($Portal->isPluginEnabled('timetable') ? 'selected' : '') ?> >Timetable</option>
+                        <option value="comments" <?= ($Portal->isPluginEnabled('comments') ? 'selected' : '') ?> >Comments</option>
+                        
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['notification'] ?><br><small><?= $string['help:notification'] ?></small></td>
+                <td>
+                    <textarea name="notification"><?= $Portal->getSetting('notification') ?></textarea>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['userguide'] ?><br><small><?= $string['help:userguide'] ?></small></td>
+                <td>
+                    <input type='file' name='user_guide'  /> <input type="checkbox" name="delete_user_guide" /> <?= $string['deletecurrentfile'] ?><br>
+                    <?php if ($Portal->getSetting('user_guide') !== false): ?>
+                        <br><a href="download.php?f=<?= bin2hex($Portal->getSetting('user_guide')) ?>"><?= $Portal->getSetting('user_guide') ?></a>
+                    <?php endif; ?>
+                </td>
+            </tr>
+
+        </table>
+        
+        <p class="c"><input type="submit" class='btn' name="update_settings" value="<?= $string['save'] ?>" /></p>
+
+    </div>
+    
+</form>
+
+<?php endif; ?>

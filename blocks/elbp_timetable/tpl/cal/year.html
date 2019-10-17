@@ -1,0 +1,665 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<?= $TT->buildCSS(); ?>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('january', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+    </tr>
+    
+    <tbody>
+        <?= $output[1] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('feburary', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[2] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('march', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[3] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('april', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[4] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('may', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[5] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('june', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[6] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('july', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[7] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('august', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+    <tbody>
+        <?= $output[8] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('september', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+     <tbody>
+        <?= $output[9] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('october', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+     <tbody>
+        <?= $output[10] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('november', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+     <tbody>
+        <?= $output[11] ?>
+    </tbody>
+    
+</table>
+
+<table class="elbp_tt_yearly_month">
+    <tr>
+        <td colspan="7" class="month_name"><?= get_string('december', 'block_elbp_timetable') ?></td>
+    </tr>
+    <tr>
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('monletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('tueletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('wedletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('thuletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('friletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+        
+        <?php if ($TT->getSetting('mis_day_number_format') == "N") : ?>
+            <td class="day"><?= get_string('sunletter', 'block_elbp_timetable') ?></td>
+        <?php else: ?>
+            <td class="day"><?= get_string('satletter', 'block_elbp_timetable') ?></td>
+        <?php endif; ?>
+    </tr>
+    
+     <tbody>
+        <?= $output[12] ?>
+    </tbody>
+    
+</table>
+
+<script>
+    $('#elbp_tt_title').text('<?= $year ?>');
+    $('#back_arrow').unbind('click').click( function(){
+        ELBP.Timetable.year( <?= ($yearAdd - 1) ?> );
+    } );
+    $('#forward_arrow').unbind('click').click( function(){
+        ELBP.Timetable.year( <?= ($yearAdd + 1) ?> );
+    } );
+    $('#today').unbind('click').click( function(){
+        ELBP.Timetable.year('today');
+    } );
+</script>

@@ -1,0 +1,60 @@
+<p><?= $string['help:request'] ?></p>
+
+<br><br>
+
+<div class="c">
+    
+    <?= $Portal->displayAnyErrors() ?>
+    <?= $Portal->displayAnySuccess() ?>
+    
+    <form action="<?= $Portal->www ?>?action=request&page=request" method="post">
+        <table style='margin:auto'>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="idnumber"><?= $string['idnumber'] ?>:</label>
+                        <input type="text" style="width:90%" name="sID" value="">
+                    </td>
+                    <?php if ($Portal->getAccessMethod() == 'idnumberdob'): ?>
+                    <td>
+                        <label for="dob"><?= $string['dob'] ?>:</label>
+                        <input type="text" style="width:90%" class="datePicker" name="sDOB" value="" readonly="readonly">
+                    </td>
+                    <?php endif; ?>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><input type="submit" name="submit_request" value="<?= $string['request'] ?>" class="btn"></p>
+    </form>
+    
+    <br><br>
+    
+    <?php if (isset($foundUser) && $foundUser): ?>
+    
+    <p class='c'><?= $string['results'] ?>:</p>
+    
+        <table style='width:400px;margin:auto;'>
+            
+            <tr>
+                <th><?= $string['username'] ?></th>
+                <th><?= $string['name'] ?></th>
+            </tr>
+            
+            <tr>
+                <td><?= $foundUser->username ?></td>
+                <td><?= \fullname($foundUser) ?></td>
+                <td><form action='' method='post'>
+                        <input type='hidden' name='sID' value='<?= $foundUser->$field ?>' />
+                        <?php if ($Portal->getAccessMethod() == 'idnumberdob'): ?>
+                            <input type='hidden' name='sDOB' value='<?= $foundUser->dob ?>' />
+                        <?php endif; ?>
+                        <input type='hidden' name='submit_request' value='' />
+                        <input type='submit' name='confirm' class='small' value='<?= $string['confirm'] ?>' />
+                    </form></td>
+            </tr>
+        </table>
+    
+    <?php endif; ?>
+    
+</div>

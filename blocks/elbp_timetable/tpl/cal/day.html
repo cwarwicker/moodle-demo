@@ -1,0 +1,32 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<?= $TT->buildCSS(); ?>
+<table id="elbp_tt_tt">
+
+        <thead>
+            <tr>
+                <th class="elbp_timetable_time noBorder">&nbsp;</th>
+                <th class="elbp_timetable_day" style="width:95%;"><?= $day->format("D, F d") ?></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?= $output ?>
+
+        </tbody>
+
+</table>
+
+<script>
+    $('#elbp_tt_title').text('<?= $day->format("d F Y") ?>');
+    $('#back_arrow').unbind('click').click( function(){
+        ELBP.Timetable.day( <?= ($dayAdd - 1) ?> );
+    } );
+    $('#forward_arrow').unbind('click').click( function(){
+        ELBP.Timetable.day( <?= ($dayAdd + 1) ?> );
+    } );
+    $('#today').unbind('click').click( function(){
+        ELBP.Timetable.day('today');
+    } );
+</script>

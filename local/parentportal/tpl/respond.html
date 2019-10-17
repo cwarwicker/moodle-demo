@@ -1,0 +1,23 @@
+<div style="padding:100px;background-color:#fff;" class="c">
+    
+    <?php if ($access): ?>
+    <form action="" method="post">
+        
+        <?= $string['accessreqby'] ?>: <?= $access->firstname . ' ' . $access->lastname . ' ('.$access->email.')'; ?> - <?= date('D jS M Y, H:i', $access->requesttime) ?><br><br>
+        
+        <?php if ($Portal->success): ?>
+        
+            <?= $Portal->displayAnySuccess() ?>
+        
+        <?php else: ?>
+        
+            <input type="submit" name="accept_request" class="btn" value="<?= $string['accept'] ?>" /> &nbsp;&nbsp; <input type="submit" name="reject_request" class="btn" value="<?= $string['reject'] ?>" />
+        
+        <?php endif; ?>
+        
+    </form>
+    <?php else: ?>
+        <span class="error"><?= $string['invalidreqaccess'] ?></span>
+    <?php endif; ?>
+    
+</div>

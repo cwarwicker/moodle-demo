@@ -1,0 +1,47 @@
+<?= $Portal->printUserBar() ?>
+
+<?php if ($Portal->getStudent()): ?>
+
+    <?php if ($comments): ?>
+
+    <?php $cnt = count($comments); $n = 0; ?>    
+    <?php foreach($comments as $comment): ?>
+
+        <?php $n++ ?>
+
+        <a name="comment-<?= $comment->getID() ?>"></a>
+        <div style="background: url('<?= $comment->getPositiveImage() ?>') no-repeat;background-size: 70px;background-position-x:10px;background-position-y:-10px;">
+
+        <div class="c">
+            <span class="title"><?= $comment->getAttribute($OBJ->getTitleAttribute()) ?></span><br>
+            <strong><?= $comment->getDate('D jS F Y') ?></strong>
+            <br>
+            <?= get_string('setby', 'block_elbp') ?>: <?= $comment->getSetByUserFullName() ?>, <?= $comment->getSetDate('D jS F Y') ?>
+        </div>
+
+        <?php $comment->display() ?>
+
+        </div>
+
+        <br class="cl" />
+
+        <?php if ($cnt > $n): ?>
+            <hr>
+            <br>
+        <?php endif; ?>
+
+    <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <p class="c"><?= $string['noresults'] ?></p>
+
+    <?php endif; ?>
+
+
+
+<?php else: ?>
+
+<p class='c'><?= $string['pleaseselectstudent'] ?></p>
+
+<?php endif; ?>

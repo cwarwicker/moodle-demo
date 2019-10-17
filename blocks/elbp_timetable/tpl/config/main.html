@@ -1,0 +1,84 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<form action='' method='post'>
+
+    <h2><?= get_string('blockconfig', 'block_elbp') ?></h2>
+    <?php $TT->displayConfig() ?>
+    
+    <br><br>
+        
+    <small><strong><?= get_string('coursetypeindata', 'block_elbp_timetable') ?></strong> - <?= get_string('coursetypeindata:desc' ,'block_elbp_timetable') ?></small><br>
+    <input type='radio' name='link_course_by' value='0' <?= ($TT->getSetting('link_course_by') == false ) ? 'checked' : '' ?> /> <?= get_string('donotlink', 'block_elbp_timetable') ?> &nbsp; 
+    <input type='radio' name='link_course_by' value='shortname' <?= ($TT->getSetting('link_course_by') == 'shortname' ) ? 'checked' : '' ?> /> <?= get_string('shortname', 'block_elbp_timetable') ?> &nbsp; 
+    <input type='radio' name='link_course_by' value='idnumber' <?= ($TT->getSetting('link_course_by') == 'idnumber' ) ? 'checked' : '' ?> /> <?= get_string('idnumber', 'block_elbp_timetable') ?> &nbsp; 
+    <input type='radio' name='link_course_by' value='fullname' <?= ($TT->getSetting('link_course_by') == 'fullname' ) ? 'checked' : '' ?> /> <?= get_string('fullname', 'block_elbp_timetable') ?> &nbsp; 
+          
+    
+    <br><br>
+    
+    <h2><?= get_string('timesettings', 'block_elbp_timetable') ?></h2>
+    
+    <small><strong><?= get_string('starthour', 'block_elbp_timetable') ?></strong> - <?= get_string('starthour:desc', 'block_elbp_timetable') ?></small><br>
+    <select name='start_hour'>
+        <?php for($i = 0; $i <= 23; $i++): ?>
+            <?php $disp = $i; if($disp < 10) $disp = "0".$disp; ?>
+            <option value="<?= $disp ?>" <?= ( $TT->getSetting('start_hour') == $disp || (!$TT->getSetting('start_hour') && $i == $TT->getDefaultStartHour()) ) ? 'selected' : '' ?> ><?= $disp ?></option>
+        <?php endfor; ?>
+    </select>
+    <br><br>
+    
+    <small><strong><?= get_string('endhour', 'block_elbp_timetable') ?></strong> - <?= get_string('endhour:desc', 'block_elbp_timetable') ?></small><br>
+    <select name='end_hour'>
+        <?php for($i = 0; $i <= 23; $i++): ?>
+            <?php $disp = $i; if($disp < 10) $disp = "0".$disp; ?>
+            <option value="<?= $disp ?>" <?= ( $TT->getSetting('end_hour') == $disp || (!$TT->getSetting('end_hour') && $i == $TT->getDefaultEndHour()) ) ? 'selected' : '' ?> ><?= $disp ?></option>
+        <?php endfor; ?>
+    </select>
+    <br><br>
+    
+    <small><strong><?= get_string('minutes', 'block_elbp_timetable') ?></strong> - <?= get_string('minutes:desc', 'block_elbp_timetable') ?></small><br>
+    <select name='minutes'>
+        <option value="5"  <?= ( 5 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >5</option>
+        <option value="10" <?= ( 10 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >10</option>
+        <option value="15" <?= ( 15 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >15</option>
+        <option value="20" <?= ( 20 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >20</option>
+        <option value="30" <?= ( 30 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >30</option>
+        <option value="60" <?= ( 60 == $TT->getDefaultMinutes() ) ? 'selected' : '' ?>  >60</option>
+    </select>
+    <br><br>
+    
+    
+    
+    <br><br>
+        
+    
+    
+    <h2><?= get_string('coloursettings', 'block_elbp_timetable') ?></h2>
+    
+    <small><strong><?= get_string('monday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='monday_colour' value='<?= $TT->getDayColour('monday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('tuesday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='tuesday_colour' value='<?= $TT->getDayColour('tuesday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('wednesday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='wednesday_colour' value='<?= $TT->getDayColour('wednesday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('thursday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='thursday_colour' value='<?= $TT->getDayColour('thursday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('friday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='friday_colour' value='<?= $TT->getDayColour('friday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('saturday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='saturday_colour' value='<?= $TT->getDayColour('saturday') ?>' />
+    <br><br>
+    <small><strong><?= get_string('sunday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+        <input type='color' name='sunday_colour' value='<?= $TT->getDayColour('sunday') ?>' />
+    <br><br>    
+    
+    
+    <br><br>
+    <p class='elbp_centre'><input type="submit" name="submitconfig" value="<?= get_string('save', 'block_elbp') ?>" /></p>
+    
+    </form>

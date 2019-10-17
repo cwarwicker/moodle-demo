@@ -1,0 +1,37 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<div id="elbp_tt_nav">
+    <table>
+        <tr>
+            <th>
+                <ul id="elbp_tt_type">
+                    <li><a href="#" onclick="ELBP.Timetable.load_calendar('day', this);return false;"><?= get_string('day', 'block_elbp_timetable') ?></a></li>
+                    <li><a href="#" onclick="ELBP.Timetable.load_calendar('week', this);return false;" class="sel"><?= get_string('week', 'block_elbp_timetable') ?></a></li>
+                    <li><a href="#" onclick="ELBP.Timetable.load_calendar('month', this);return false;"><?= get_string('month', 'block_elbp_timetable') ?></a></li>
+                    <li><a href="#" onclick="ELBP.Timetable.load_calendar('year', this);return false;"><?= get_string('year', 'block_elbp_timetable') ?></a></li>
+                </ul>
+            </th>
+            <th id="elbp_tt_title"></th>
+            <th>
+                <ul>
+                    <li><a id="today" href="#" title="<?= get_string('jumptotoday', 'block_elbp_timetable') ?>"><?= get_string('today', 'block_elbp_timetable') ?></a></li>
+                    <li><a id="back_arrow" href="#" title="<?= get_string('back', 'block_elbp_timetable') ?>" class="arrow" style="background-image:url('<?= $CFG->wwwroot ?>/blocks/elbp_timetable/pix/arrow_left.png');">&nbsp;</a></li>
+                    <li><a id="forward_arrow" href="#" title="<?= get_string('forward', 'block_elbp_timetable') ?>" class="arrow" style="background-image:url('<?= $CFG->wwwroot ?>/blocks/elbp_timetable/pix/arrow_right.png');">&nbsp;</a></li>
+                    <?php if ( elbp_has_capability('block/elbp_timetable:can_change_colours', $access) ): ?> <li><a href="#" onclick="ELBP.Timetable.load_colour_settings();return false;" title="<?= get_string('settings', 'block_elbp_timetable') ?>" class="settings" style="background-image:url('<?= $CFG->wwwroot ?>/blocks/elbp_timetable/pix/cog.png');">&nbsp;</a></li> <?php endif; ?>
+                </ul>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<div id="elbp_tt_content">
+    
+    
+    
+</div>
+
+<script>
+    $(document).ready( function(){
+        ELBP.Timetable.load_calendar('week');
+    } );
+</script>

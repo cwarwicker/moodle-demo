@@ -1,0 +1,18 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel='stylesheet' type='text/css' href='<?= $CFG->wwwroot ?>/blocks/elbp_timetable/styles.css' />
+        <script type='text/javascript' src='<?= $CFG->wwwroot ?>/blocks/elbp/js/jquery.js'></script>
+    </head>
+    <body onload="window.print();">
+        
+        <?php
+            $TT->buildCSS();
+            $TT->buildFull( array("format"=>false) );   
+        ?>
+        
+    </body>
+</html>

@@ -1,0 +1,27 @@
+[submodule "blocks/quick_course"]
+	path = blocks/quick_course
+	url = https://github.com/cwarwicker/moodle-block_quick_course
+[submodule "blocks/quick_user"]
+	path = blocks/quick_user
+	url = https://github.com/cwarwicker/moodle-block_quick_user
+[submodule "blocks/gradetracker"]
+	path = blocks/gradetracker
+	url = https://github.com/cwarwicker/moodle-block_gradetracker
+[submodule "blocks/elbp"]
+	path = blocks/elbp
+	url = https://github.com/cwarwicker/moodle-block_elbp
+[submodule "blocks/elbp_timetable"]
+	path = blocks/elbp_timetable
+	url = https://github.com/cwarwicker/moodle-block_elbp_timetable
+[submodule "blocks/bc_dashboard"]
+	path = blocks/bc_dashboard
+	url = https://github.com/cwarwicker/moodle-block_bc_dashboard
+[submodule "local/df_hub"]
+	path = local/df_hub
+	url = https://github.com/cwarwicker/moodle-local_df_hub
+[submodule "local/parentportal"]
+	path = local/parentportal
+	url = https://github.com/cwarwicker/moodle-local_parentportal
+[submodule "mod/assign/feedback/gradetracker"]
+	path = mod/assign/feedback/gradetracker
+	url = https://github.com/cwarwicker/moodle-assignfeedback_gradetracker

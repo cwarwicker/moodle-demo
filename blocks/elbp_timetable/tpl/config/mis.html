@@ -1,0 +1,112 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<form action="" method="post">
+<h2><?= $string['misconfig'] ?></h2>
+    
+    <small><strong><?= $string['usemoodleormis'] ?></strong> - <?= $string['usemoodleormis:desc'] ?></small><br>
+    <input type='radio' name='use_direct_mis' value='0' <?= ($TT->getSetting('use_direct_mis') != 1 ) ? 'checked' : '' ?> /> <?= $string['moodledatabase'] ?> &nbsp; 
+    <input type='radio' name='use_direct_mis' value='1' <?= ($TT->getSetting('use_direct_mis') == 1 ) ? 'checked' : '' ?> /> <?= $string['mis'] ?>
+    <br><br>
+
+    <?php if ($TT->getMainMIS() !== false): ?>    
+    
+    <small><strong><?= $string['mistablename'] ?></strong> - <?= $string['mistablename:desc'] ?></small><br>
+    <input type='text' name='mis_view_name' value='<?= $TT->getSetting('mis_view_name') ?>'  />
+    <br><br>
+    
+    <small><strong><?= $string['mispostexecute'] ?></strong> - <?= $string['mispostexecute:desc'] ?></small><br>
+    <textarea class="elbp_textarea" name='mis_post_connection_execute'><?= $TT->getSetting('mis_post_connection_execute') ?></textarea>
+    <br><br>
+<!--    
+    <small><strong><?= get_string('dateformat', 'block_elbp_timetable') ?></strong> - <?= get_string('dateformat:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='text' class='elbp_small' name='mis_date_format' value='<?= $TT->getSetting('mis_date_format') ?>'  />
+    <br><br>-->
+    
+    <small><strong><?= get_string('daynumberformat', 'block_elbp_timetable') ?></strong> - <?= get_string('daynumberformat:desc', 'block_elbp_timetable') ?></small><br>
+    <select name="mis_day_number_format">
+        <option value="N" <?= ($TT->getSetting('mis_day_number_format') == 'N') ? 'selected' : ''; ?>><?= get_string('daynumberformat:N', 'block_elbp_timetable') ?></option>
+        <option value="w" <?= ($TT->getSetting('mis_day_number_format') == 'w') ? 'selected' : ''; ?>><?= get_string('daynumberformat:w', 'block_elbp_timetable') ?></option>
+    </select>
+    <br><br>
+    
+    <small><strong><?= get_string('username') ?></strong> - <?= get_string('mis:username:desc', 'block_elbp_timetable') ?></small><br>
+    <select name="mis_username_or_idnumber">
+        <option value=""></option>
+        <option value="username" <?= ($TT->getSetting('mis_username_or_idnumber') == 'username') ? 'selected' : ''; ?> >username</option>
+        <option value="idnumber" <?= ($TT->getSetting('mis_username_or_idnumber') == 'idnumber') ? 'selected' : ''; ?> >idnumber</option>
+    </select>
+    <br><br>
+    
+    
+    <h3><?= $string['misfieldmapping'] ?></h3>
+    
+    <?php
+    
+    $fields = array(
+    
+        array("field" => "id", "name" => get_string('map:id', 'block_elbp_timetable'), "desc" => get_string('map:id:desc', 'block_elbp_timetable')),
+        array("field" => "daynum", "name" => get_string('map:daynum', 'block_elbp_timetable'), "desc" => get_string('map:daynum:desc', 'block_elbp_timetable')),
+        array("field" => "dayname", "name" => get_string('map:dayname', 'block_elbp_timetable'), "desc" => get_string('map:dayname:desc', 'block_elbp_timetable')),
+        array("field" => "username", "name" => get_string('map:username', 'block_elbp_timetable'), "desc" => get_string('map:username:desc', 'block_elbp_timetable')),
+        array("field" => "lesson", "name" => get_string('map:lessonname', 'block_elbp_timetable'), "desc" => get_string('map:lessonname:desc', 'block_elbp_timetable')),
+        array("field" => "staff", "name" => get_string('map:staff', 'block_elbp_timetable'), "desc" => get_string('map:staff:desc', 'block_elbp_timetable')),
+        array("field" => "course", "name" => get_string('map:course', 'block_elbp_timetable'), "desc" => get_string('map:course:desc', 'block_elbp_timetable')),
+        array("field" => "room", "name" => get_string('map:room', 'block_elbp_timetable'), "desc" => get_string('map:room:desc', 'block_elbp_timetable')),
+        array("field" => "starttime", "name" => get_string('map:starttime', 'block_elbp_timetable'), "desc" => get_string('map:starttime:desc', 'block_elbp_timetable')),
+        array("field" => "endtime", "name" => get_string('map:endtime', 'block_elbp_timetable'), "desc" => get_string('map:endtime:desc', 'block_elbp_timetable')),
+        array("field" => "startdate", "name" => get_string('map:startdate', 'block_elbp_timetable'), "desc" => get_string('map:startdate:desc', 'block_elbp_timetable')),
+        array("field" => "enddate", "name" => get_string('map:enddate', 'block_elbp_timetable'), "desc" => get_string('map:enddate:desc', 'block_elbp_timetable')),
+        
+    );
+    
+    \elbp_print_mis_mappings_table($fields, $conn, $string);
+    
+    ?>   
+    
+    <?php else: ?>
+    <p><?= $string['misnocorefound'] ?></p>
+    <?php endif; ?>
+    
+        
+    <br><br>
+    <p class='elbp_centre'><input type="submit" name="submitconfig" value="<?= get_string('save', 'block_elbp') ?>" /></p>
+</form>
+
+<br><br>
+
+<form action="" method="post">
+<h2><?= $string['mistest'] ?></h2>
+
+    <small><strong><?= get_string('username') ?></strong> - <?= get_string('mistest:username:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='text' name='testusername' value='<?= isset($_POST['testusername']) ? elbp_html($_POST['testusername']) : ''; ?>'  />
+    <br><br>
+    
+    <?php if (isset($MSGS['queryerrors']) && !empty($MSGS['queryerrors'])): ?>
+        <?= elbp_error_msg($MSGS['queryerrors']) ?>
+    <?php endif; ?>
+    
+    <?php if (isset($MSGS['sql'])): ?>
+    <div class="elbp_code">
+        <?= \elbp_format_code($MSGS['sql'], 'sql') ?>
+    </div>
+    <?php endif; ?>
+    
+    <?php if (isset($MSGS['testoutput'])): ?>
+        <?php if (!empty($MSGS['testoutput'])): ?>
+            <?php foreach($MSGS['testoutput'] as $lesson): ?>
+                <?= nl2br($lesson); ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <?= get_string('noresults', 'block_elbp') ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+<br><br>
+    <p class='elbp_centre'>
+        
+        <small><?= $string['mistest:debug'] ?></small><br>
+        <input type="submit" name="submitmistest_allclasses" value="<?= get_string('runtest:allclasses', 'block_elbp_timetable') ?>" />
+        <input type="submit" name="submitmistest_todayclasses" value="<?= get_string('runtest:todayclasses', 'block_elbp_timetable') ?>" />
+
+    </p>
+</form>

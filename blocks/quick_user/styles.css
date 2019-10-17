@@ -1,0 +1,61 @@
+/* 
+    Document   : styles
+    Created on : 04-Jul-2013, 22:15:54
+    Author     : Conn
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div#quick_user
+{
+    width: 90%;
+    margin: auto;
+}
+
+div#quick_user input
+{
+    width: 100%;
+    text-align: left;
+}
+
+div#quick_user_results a img
+{
+    width: 12px;
+}
+
+div#quick_user_results a img.userpicture
+{
+    width: 20px;
+    height: 20px;
+}
+
+img#quick_user_loading
+{
+    width: 20px;
+}
+
+.quick_user_centre
+{
+    text-align: center;
+}
+
+.quick_user_bold
+{
+    font-weight: bold;
+}
+
+div#quick_user_results
+{
+    font-size: 8pt;
+}
+
+div.quick_user_expand
+{
+    margin-bottom: 5px;
+    text-align: center;
+}

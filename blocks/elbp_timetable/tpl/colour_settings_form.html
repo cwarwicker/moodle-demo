@@ -1,0 +1,28 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<small><strong><?= get_string('monday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='monday_colour' value='<?= $TT->getDayColour('monday') ?>' />
+<br><br>
+<small><strong><?= get_string('tuesday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='tuesday_colour' value='<?= $TT->getDayColour('tuesday') ?>' />
+<br><br>
+<small><strong><?= get_string('wednesday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='wednesday_colour' value='<?= $TT->getDayColour('wednesday') ?>' />
+<br><br>
+<small><strong><?= get_string('thursday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='thursday_colour' value='<?= $TT->getDayColour('thursday') ?>' />
+<br><br>
+<small><strong><?= get_string('friday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='friday_colour' value='<?= $TT->getDayColour('friday') ?>' />
+<br><br>
+<small><strong><?= get_string('saturday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='saturday_colour' value='<?= $TT->getDayColour('saturday') ?>' />
+<br><br>
+<small><strong><?= get_string('sunday', 'block_elbp_timetable') ?></strong> - <?= get_string('coloursetting:desc', 'block_elbp_timetable') ?></small><br>
+    <input type='color' id='sunday_colour' value='<?= $TT->getDayColour('sunday') ?>' />
+<br><br>    
+    
+<script type="text/javascript">
+     // If the user's browser doesn't support the "color" input type, we'll have to do it differently
+     ELBP.apply_colour_picker();
+</script>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><?= $Portal->getSiteTitle() . ' :: ' . $title ?></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="<?= $Portal->www ?>css/styles.css" />
+    <?php if (isset($css)): ?>
+        <?= $css ?>
+    <?php endif; ?>
+    <style type='text/css'>
+        div#top-bar
+        {
+            background-image: url('<?= $Portal->getLogoURL() ?>');
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="<?= $Portal->www ?>css/custom-theme/jquery-ui-1.10.3.custom.css" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    
+    <?php $jquery = $Portal->jquery(); ?>
+    <?php if ($jquery): ?>
+        <?php foreach($jquery as $script): ?>
+            <script type='text/javascript' src='<?= $CFG->wwwroot ?>/theme/jquery.php/core/<?= $script ?>'></script>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <script type='text/javascript'>
+        var www = '<?= $Portal->www ?>';
+        var M = {};
+        var Y = {};
+        M.cfg = {};
+        M.cfg.wwwroot = '<?= $CFG->wwwroot ?>/';
+    </script>
+    <script type='text/javascript' src='<?= $Portal->www ?>scripts.js'></script>
+    <?php if (isset($js)): ?>
+        <?= $js ?>
+    <?php endif; ?>
+</head>
+<body>
+    
+<div id="wrapper">
+
+<div id="top-bar">
+
+</div>        
+
+<?php if($Portal->isAuthenticated()): ?>
+
+<div id="area-bar">
+    
+    <ul>
+        
+        <li class='title'>
+            <a href='<?= $Portal->www ?>' title='<?= $string['home'] ?>'>
+                <?= $string['parentportal'] ?>
+            </a>
+        </li>
+        
+        <?php if ($Portal->isAdmin()): ?>
+        
+            <li class='item'>
+                <a href='<?= $Portal->www ?>?page=users' title='<?= $string['users'] ?>'>
+                    <img src='pix/users.png' onmouseover='pp_setImage(this, "users_hover.png");' onmouseout='pp_setImage(this, "users.png");' />
+                </a>
+            </li>
+
+            <li class='item'>
+                <a href='<?= $Portal->www ?>?page=stats' title='<?= $string['stats'] ?>'>
+                    <img src='pix/stats.png' onmouseover='pp_setImage(this, "stats_hover.png");' onmouseout='pp_setImage(this, "stats.png");' />
+                </a>
+            </li>
+        
+        <?php endif; ?>
+        
+        <?php if ($Portal->isPluginEnabled('grades')): ?>
+            <li class='item'>
+                <a href='<?= $Portal->www ?>?page=grades&studentid=<?= $Portal->getStudentID() ?>' title='<?= $string['grades'] ?>'>
+                    <img src='pix/grades.png' onmouseover='pp_setImage(this, "grades_hover.png");' onmouseout='pp_setImage(this, "grades.png");' />
+                </a>
+            </li>
+        <?php endif; ?>
+        
+        <?php if ($Portal->isPluginEnabled('attendance')): ?>
+            <li class='item'>
+                <a href='<?= $Portal->www ?>?page=attendance&studentid=<?= $Portal->getStudentID() ?>' title='<?= $string['attendance'] ?>'>
+                    <img src='pix/clock.png' onmouseover='pp_setImage(this, "clock_hover.png");' onmouseout='pp_setImage(this, "clock.png");' />
+                </a>
+            </li>
+        <?php endif; ?>
+        
+        <?php if ($Portal->isPluginEnabled('coursereports')): ?>
+        <li class='item'>
+            <a href='<?= $Portal->www ?>?page=coursereports&studentid=<?= $Portal->getStudentID() ?>' title='<?= $string['coursereports'] ?>'>
+                <img src='pix/reports.png' onmouseover='pp_setImage(this, "reports_hover.png");' onmouseout='pp_setImage(this, "reports.png");' />
+            </a>
+        </li>
+        <?php endif; ?>
+        
+        <?php if ($Portal->isPluginEnabled('timetable')): ?>
+        <li class='item'>
+            <a href='<?= $Portal->www ?>?page=timetable&studentid=<?= $Portal->getStudentID() ?>' title='<?= $string['timetable'] ?>'>
+                <img src='pix/calendar.png' onmouseover='pp_setImage(this, "calendar_hover.png");' onmouseout='pp_setImage(this, "calendar.png");' />
+            </a>
+        </li>
+        <?php endif; ?>
+        
+        <?php if ($Portal->isPluginEnabled('comments')): ?>
+        <li class='item'>
+            <a href='<?= $Portal->www ?>?page=comments&studentid=<?= $Portal->getStudentID() ?>' title='<?= $string['comments'] ?>'>
+                <img src='pix/comments.png' onmouseover='pp_setImage(this, "comments_hover.png");' onmouseout='pp_setImage(this, "comments.png");' />
+            </a>
+        </li>
+        <?php endif; ?>
+        
+<!--        <li class='item'>
+            <a href='#' title='<?= $string['yourstudents'] ?>'>
+                <img src='pix/family.png' onmouseover='pp_setImage(this, "family_hover.png");' onmouseout='pp_setImage(this, "family.png");' />
+            </a>
+        </li>-->
+        
+        <li class='item'>
+            <a href='<?= $Portal->www ?>?page=settings' title='<?= $string['settings'] ?>'>
+                <img src='pix/settings.png' onmouseover='pp_setImage(this, "settings_hover.png");' onmouseout='pp_setImage(this, "settings.png");' />
+            </a>
+        </li>
+        
+        <li class='item'>
+            <a href='<?= $Portal->www ?>?page=help' title='<?= $string['help'] ?>'>
+                <img src='pix/help.png' onmouseover='pp_setImage(this, "help_hover.png");' onmouseout='pp_setImage(this, "help.png");' />
+            </a>
+        </li>
+                
+    </ul>
+    
+    <a href="<?= $Portal->www ?>?page=logout" class="end" title='<?= $string['logout'] ?>'>
+        <img src="pix/logout.png" alt="Logout" onmouseover="pp_setImage(this,'logout_hover.png');" onmouseout="pp_setImage(this, 'logout.png');">
+    </a>
+    
+</div>
+
+<div id="link-bar">
+    
+    <a href='<?= $Portal->www ?>'><?= $Portal->getSiteTitle() ?></a>
+    <span class='seperator'></span>
+    <?= $Portal->getBreadcrumbs() ?>
+    
+</div>
+
+<?php endif; ?>
+
+
+
+<?php if (($notification = $Portal->getSetting('notification')) && trim($notification) != ''): ?>
+    <div id="info-bar-2">
+        <strong><?= $string['notification'] ?>:</strong> <?= \pp_html($notification) ?>
+    </div>
+<?php endif; ?>
+
+
+
+<?php if ( ($file = $Portal->getSetting('user_guide')) !== false && !is_null($file)): ?>
+    <div id="info-bar">
+        <a href="download.php?f=<?= bin2hex($Portal->getSetting('user_guide')) ?>"><?= $Portal->getSetting('user_guide') ?></a>
+    </div>
+<?php endif; ?>
+
+
+<?php if($Portal->isAuthenticated()): ?>
+
+<div id="content">
+    
+    <div id="students">
+        
+        <div class="section-header"><?= $string['students'] ?></div>
+        <div id="students-content">
+            
+            <?= $Portal->listStudents() ?>
+            
+        </div>
+        
+    </div>
+    <div id="main">
+        
+        <div class="section-header"><?= $contentTitle ?></div>
+        
+        <div id="main-content">
+
+<?php endif; ?>

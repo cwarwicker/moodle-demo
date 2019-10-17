@@ -1,0 +1,38 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<?= $TT->buildCSS(); ?>
+<table id="elbp_tt_tt">
+
+        <thead>
+            <tr>
+                <th class="elbp_timetable_time noBorder">&nbsp;</th>
+                <th class="elbp_timetable_day <?= $days['MON']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('mon', 'block_elbp_timetable') ?>, <?= $days['MON']['str'] ?></th>
+                <th class="elbp_timetable_day <?= $days['TUE']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('tue', 'block_elbp_timetable') ?>, <?= $days['TUE']['str'] ?></th>
+                <th class="elbp_timetable_day <?= $days['WED']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('wed', 'block_elbp_timetable') ?>, <?= $days['WED']['str'] ?></th>
+                <th class="elbp_timetable_day <?= $days['THU']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('thu', 'block_elbp_timetable') ?>, <?= $days['THU']['str'] ?></th>
+                <th class="elbp_timetable_day <?= $days['FRI']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('fri', 'block_elbp_timetable') ?>, <?= $days['FRI']['str'] ?></th>
+                <th class="elbp_timetable_day elbp_remove_SAT <?= $days['SAT']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('sat', 'block_elbp_timetable') ?>, <?= $days['SAT']['str'] ?></th>
+                <th class="elbp_timetable_day elbp_remove_SUN <?= $days['SUN']['date'] == date('Ymd') ? 'elbp_today' : '' ?> "><?= get_string('sun', 'block_elbp_timetable') ?>, <?= $days['SUN']['str'] ?></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?= $output ?>
+
+        </tbody>
+
+</table>
+
+<script>
+    $('#elbp_tt_title').text('<?= $weekTitle ?>');
+    $('#back_arrow').unbind('click').click( function(){
+        ELBP.Timetable.week( <?= ($weekAdd - 1) ?> );
+    } );
+    $('#forward_arrow').unbind('click').click( function(){
+        ELBP.Timetable.week( <?= ($weekAdd + 1) ?> );
+    } );
+    $('#today').unbind('click').click( function(){
+        ELBP.Timetable.week('today');
+    } );
+</script>

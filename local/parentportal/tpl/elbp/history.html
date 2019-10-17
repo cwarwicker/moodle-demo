@@ -1,0 +1,45 @@
+<table id="elbp_portal_requests">
+    
+    <tr style="<?= $obj->getHeaderStyle() ?>">
+        <th><?= $string['actionby'] ?></th>
+        <th><?= $string['time'] ?></th>
+        <th><?= $string['user'] ?></th>
+        <th><?= $string['status'] ?></th>
+    </tr>
+    
+    <?php if ($requests): ?>
+    
+        <?php foreach($requests as $request): ?>
+        
+        <tr>
+            <td>
+                <?php if ($request->actionbyusertype == 'portal'): ?>
+                    <?= $request->firstname ?> <?= $request->lastname ?>
+                    <br>
+                    <small>(<?= $request->email ?>)</small>
+                <?php elseif ($request->actionbyusertype == 'moodle'): ?>
+                    <?= \elbp_get_fullname($request->actionbyuserid); ?>
+                    <br>
+                    <small>(<?= \elbp_get_fullname($request->actionbyuserid) ?>)</small>
+                <?php endif; ?>
+            </td>
+            <td><?= date('D jS M Y, H:i', $request->requesttime) ?></td>
+            <td><?= $request->firstname ?> <?= $request->lastname ?> <small>(<?= $request->email ?>)</small></td>
+            <td>
+                <img src="<?= $Portal->www ?>pix/elbp/<?= $Portal->getStatusImage($request->status) ?>" alt="<?= $Portal->getStatusName($request->status) ?>" title="<?= $Portal->getStatusName($request->status) ?>" />
+                <br>
+                <small>(<?= $Portal->getStatusName($request->status) ?>)</small>
+            </td>            
+        </tr>
+        
+        <?php endforeach; ?>
+    
+    <?php else: ?>
+    
+    <tr>
+        <td colspan='4' class='elbp_centre'><?= $string['norequestsfound'] ?></td>
+    </tr>
+    
+    <?php endif; ?>
+    
+</table>

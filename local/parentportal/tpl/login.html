@@ -1,0 +1,110 @@
+<div class="login-box">
+    
+    <div class='login-title purple'><?= $string['login'] ?></div>
+        
+    <form action="" method="post">
+                
+        <small><?= $string['login:inst'] ?></small><br><br>
+        
+        <?= $errors ?>
+        
+        <table>
+            
+            <tr>
+                <td><?= $string['email'] ?></td>
+                <td><input type="text" name="pp_login_email" placeholder="<?= $string['email'] ?>" value="<?= $email ?>" /></td>
+            </tr>
+            
+            <tr>
+                <td><?= $string['password'] ?></td>
+                <td><input type="password" name="pp_login_pass" placeholder="<?= $string['password'] ?>" value="<?= $pass ?>" /></td>
+            </tr>
+            
+        </table>        
+        
+        <br>
+        
+        <div class='c'>
+            <input type='submit' class='btn' name="pp_login" value="<?= $string['login'] ?>" />
+        </div>
+        
+    </form>
+        
+    <p class='c'><a href='#' onclick="$('#forgot-pw').slideToggle();return false;"><small><?= $string['forgotpw'] ?></small></a></p>
+    
+    <div class='p10'><?= $Portal->displayAnySuccess('login') ?></div>
+    
+    <form class='c' id='forgot-pw' action='<?= $Portal->www ?>?action=forgotpassword' method='post'>
+        <p class='b'><?= $string['help:forgot'] ?></p>
+        <p>
+            <?= $string['email'] ?>: <input type='text' class='standard' name='forgot_email' value='' /> <input type='submit' name='forgot_password' class='btn' value='<?= $string['submit'] ?>' />
+        </p>
+    </form>
+        
+    
+</div>
+
+<?php if ($signupEnabled): ?>
+
+    <div class="signup-box">
+
+        <div class='login-title purple'><?= $string['signup'] ?></div>
+
+        <form action="<?= $Portal->www ?>?action=signup" method="post">
+
+            <?= $Portal->displayAnyErrors('signup') ?>
+            <?= $Portal->displayAnySuccess('signup') ?>
+
+            <table>
+
+                <tr>
+                    <td><?= $string['firstname'] ?></td>
+                    <td><input type="text" name="pp_signup_firstname" placeholder="<?= $string['firstname'] ?>" value="<?= (isset($GLOBALS['firstname'])) ? $GLOBALS['firstname'] : ''; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['lastname'] ?></td>
+                    <td><input type="text" name="pp_signup_lastname" placeholder="<?= $string['lastname'] ?>" value="<?= (isset($GLOBALS['lastname'])) ? $GLOBALS['lastname'] : ''; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['email'] ?></td>
+                    <td><input type="text" name="pp_signup_email" placeholder="<?= $string['email'] ?>" value="<?= (isset($GLOBALS['email'])) ? $GLOBALS['email'] : ''; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['confirmemail'] ?></td>
+                    <td><input type="text" name="pp_signup_email_confirm" placeholder="<?= $string['confirmemail'] ?>" value="<?= (isset($GLOBALS['email_confirm'])) ? $GLOBALS['email_confirm'] : ''; ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['password'] ?></td>
+                    <td><input type="password" name="pp_signup_pass" placeholder="<?= $string['password'] ?>" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['confirmpassword'] ?></td>
+                    <td><input type="password" name="pp_signup_pass_confirm" placeholder="<?= $string['confirmpassword'] ?>" value="" /></td>
+                </tr>
+
+                <?php if ($Portal->hasSignupCode()): ?>
+                    <tr>
+                        <td><?= $string['signupcode'] ?></td>
+                        <td><input type="password" name="pp_signup_code" placeholder="<?= $string['signupcode'] ?>" value="<?= (isset($GLOBALS['code'])) ? $GLOBALS['code'] : ''; ?>" /> <span class='tooltip' title='<?= $string['signupcode:user:help'] ?>'><img src='<?= $OUTPUT->image_url('a/help', 'core') ?>' alt='help' /></span></td>
+                    </tr>
+                <?php endif; ?>
+
+            </table>  
+
+            <div class='c'>
+
+                <br><br>
+                <input type='submit' class='btn' name="pp_signup" value="<?= $string['signup'] ?>" />
+
+            </div>
+
+        </form>
+
+    </div>
+
+<?php endif; ?>

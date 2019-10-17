@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/elbp_timetable/db" VERSION="20140311" COMMENT="XMLDB file for Moodle blocks/elbp_timetable"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_elbp_timetable" COMMENT="Default comment for block_elbp_timetable, please edit me" NEXT="lbp_timetable">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="lbp_timetable" COMMENT="Table for user timetable data" PREVIOUS="block_elbp_timetable">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="userid"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="course"/>
+        <FIELD NAME="course" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="userid" NEXT="description"/>
+        <FIELD NAME="description" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="course" NEXT="startdate"/>
+        <FIELD NAME="startdate" TYPE="int" LENGTH="8" NOTNULL="true" SEQUENCE="false" COMMENT="Start date in format of: YYYYMMDD" PREVIOUS="description" NEXT="enddate"/>
+        <FIELD NAME="enddate" TYPE="int" LENGTH="8" NOTNULL="true" SEQUENCE="false" COMMENT="End date in format: YYYYMMDD" PREVIOUS="startdate" NEXT="starttime"/>
+        <FIELD NAME="starttime" TYPE="char" LENGTH="5" NOTNULL="true" SEQUENCE="false" COMMENT="Start time in format: HH:MM" PREVIOUS="enddate" NEXT="endtime"/>
+        <FIELD NAME="endtime" TYPE="char" LENGTH="5" NOTNULL="true" SEQUENCE="false" COMMENT="End time in format: HH:MM" PREVIOUS="starttime" NEXT="daynumber"/>
+        <FIELD NAME="daynumber" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" COMMENT="0 (Sunday) - 6 (Saturday)" PREVIOUS="endtime" NEXT="staff"/>
+        <FIELD NAME="staff" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Staff teaching this lesson" PREVIOUS="daynumber" NEXT="room"/>
+        <FIELD NAME="room" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Generally a room code, e.g. A16, SF05, ASG15, etc..." PREVIOUS="staff"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="uid_indx" UNIQUE="false" FIELDS="userid" NEXT="uidday_indx"/>
+        <INDEX NAME="uidday_indx" UNIQUE="false" FIELDS="userid, daynumber" PREVIOUS="uid_indx" NEXT="uiddayst_indx"/>
+        <INDEX NAME="uiddayst_indx" UNIQUE="false" FIELDS="userid, daynumber, starttime" PREVIOUS="uidday_indx"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

@@ -1,0 +1,18 @@
+<?php if(!defined('ELBP')) exit; ?>
+<ul class="elbp_tabrow">
+    
+    <li id="tab_link_current" class="elbp_view_link">
+        <a id="statustab_current" href="#" onclick="pp_load_display('current', this);return false;"><?= $string['requests'] ?></a>
+    </li>       
+    
+    <li id="tab_link_history" class="elbp_view_link">
+        <a id="statustab_history" href="#" onclick="pp_load_display('history', this);return false;"><?= $string['history'] ?></a>
+    </li> 
+    
+</ul>
+
+<br>
+
+<div id="elbp_portal_content"></div>
+
+<script>pp_load_display('current', $('#statustab_current'));</script>

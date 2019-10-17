@@ -1,0 +1,16 @@
+<?= $Portal->printUserBar() ?>
+
+<?php if ($Portal->getStudent()): ?>
+
+<?php
+$TT->buildCSS();
+$TT->buildFull( array("format"=>true) );
+?>
+
+<?php else: ?>
+
+<p class='c'><?= $string['pleaseselectstudent'] ?></p>
+
+<?php endif; ?>
+
+<br class="cl" />

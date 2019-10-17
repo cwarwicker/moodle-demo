@@ -1,0 +1,23 @@
+<?= $Portal->printUserBar() ?>
+
+<?php if ($Portal->getStudent()): ?>
+
+<?= $output ?>
+
+<?php else: ?>
+
+<p class='c'><?= $string['pleaseselectstudent'] ?></p>
+
+<?php endif; ?>
+
+<br><br>
+
+<input type='hidden' id='gt-external' value='1' />
+<input type='hidden' id='gt-ext-sid' value='<?= $Portal->ssn() ?>' />
+<script>
+$(document).ready( function(){
+    gt_bindings();
+    grid_bindings();
+    student_grid_bindings();
+} );
+</script>

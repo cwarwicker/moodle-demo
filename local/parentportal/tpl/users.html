@@ -1,0 +1,115 @@
+<?php if(!defined('PARENT_PORTAL')) exit; ?>
+<?php if (!$Portal->isAdmin()) exit ?>
+
+<?= $Portal->displayAnyErrors() ?>
+<?= $Portal->displayAnySuccess() ?>
+
+<?php $displayNew = (isset($_GET['action']) && $_GET['action'] == 'createaccount') ? 'block' : 'none'; ?>
+<?php $displayImport = (isset($_GET['action']) && $_GET['action'] == 'import') ? 'block' : 'none'; ?>
+
+<p class='c'>
+    <a href='#' onclick='$("#import-accounts").slideToggle();return false;'><?= $string['importusers'] ?></a>
+    <br><br>
+    <a href='#' onclick='$("#new-account").slideToggle();return false;'><?= $string['createnewaccount'] ?></a>
+</p>
+
+
+<div id='import-accounts' style='display:<?= $displayImport ?>;'>
+    
+    <form action='<?= $Portal->www ?>?page=users&action=import' method='post' enctype='multipart/form-data'>
+        
+        <p class='c'><?= $string['importinfo'] ?></p>
+        
+        <table style="width:300px;margin:auto;">
+            <tr>
+                <td colspan='2' style='background-color:rgb(241, 235, 236);' class='c'><?= $string['exampleimportheader'] ?></td>
+            </tr>
+            <tr>
+                <td><input type="file" name="csv" /></td>
+                <td><input type="submit" name="submit_import" value="<?= $string['import'] ?>" /></td>
+            </tr>
+        </table>
+        
+    </form>
+    
+    <br>
+    
+</div>
+
+<div id='new-account' style='display:<?= $displayNew ?>;'>
+    
+    <form action='<?= $Portal->www ?>?page=users&action=createaccount' method='post'>
+        
+        <table style="width:500px;margin:auto;">
+            <tbody>
+                <tr>
+                    <td><?= $string['email'] ?>:</td>
+                    <td><input type="text" name="createAccountEmail" value=""></td>
+                </tr>
+                <tr>
+                    <td><?= $string['firstname'] ?>:</td>
+                    <td><input type="text" name="createAccountFirstName" value=""></td>
+                </tr>
+                <tr>
+                    <td><?= $string['lastname'] ?>:</td>
+                    <td><input type="text" name="createAccountLastName" value=""></td>
+                </tr>
+                <tr>
+                    <td><?= $string['password'] ?></td>
+                    <td><input type="password" name="createAccountPassword" value=""></td>
+                </tr>
+                <tr>
+                    <td><?= $string['confirmpassword'] ?></td>
+                    <td><input type="password" name="createAccountPasswordConfirm" value=""></td>
+                </tr>
+                <tr>
+                    <td></td><td><input type="submit" name="createAccount" class="submit" value="<?= $string['createaccount'] ?>"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </form>
+    
+</div>
+
+
+
+<br><br>
+
+
+<div id="containerDivAdminUsers">
+    <div id="leftDivAdminUsers">
+        <p class="c b"><?= $string['portalaccounts'] ?></p>
+        <select multiple="multiple'" class="accountSelect" id="parentAccountSelect" onchange="pp_loadParentInfo(this.value);return false;" onblur="$(this).val('');return false;">
+            <?php if($portalAccounts): ?>
+                <?php foreach($portalAccounts as $account): ?>
+                    <option value="<?= $account->id ?>"><?= $account->firstname ?> <?= $account->lastname ?> (<?= $account->email ?>)</option>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </select>
+        <label for="findParent"><?= $string['search'] ?></label> 
+        <form onsubmit="pp_searchParents();return false;">
+            <input type="text" id="findParent">
+        </form>
+        <div class="c" id="parentSearchImg"></div>
+        
+    </div>
+    
+    <div id="centreDivAdminUsers">
+        <p class="c"><span class="title"><?= $string['info'] ?></span></p>
+        <div id="accountOutput">
+        </div>
+    </div>
+    
+    <div id="rightDivAdminUsers">
+        <p class="c b"><?= $string['studentaccounts'] ?></p>
+        <select multiple="multiple'" class="accountSelect" id="studentAccountSelect" onchange="pp_loadStudentInfo(this.value);return false;" onblur="$(this).val('');return false;"></select>
+        <label for="findStudent"><?= $string['search'] ?></label> 
+        <form onsubmit="pp_searchStudents();return false;">
+            <input type="text" id="findStudent">
+        </form>
+        <div class="c" id="studentSearchImg"></div>
+        
+    </div>
+    <br class="cl"><br>
+</div>

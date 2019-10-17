@@ -1,0 +1,40 @@
+<div class="login-box">
+    
+    <div class='login-title purple'><?= $string['passwordreset'] ?></div>
+        
+    <?php if ($success): ?>
+        <div class='p10'><?= $success ?></div>
+        <p class="c"><a href="<?= $Portal->www ?>" class="btn"><?= $string['continue'] ?></a></p>
+    <?php else: ?>
+    
+        <form action="" method="post">
+
+            <small><?= str_replace("%email%", $user->email, $string['passwordreset:inst']) ?></small><br><br>
+
+            <?= $errors ?>
+
+            <table>
+
+                <tr>
+                    <td><?= $string['password'] ?></td>
+                    <td><input type="password" name="pp_new_pass" placeholder="<?= $string['password'] ?>" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td><?= $string['confirmpassword'] ?></td>
+                    <td><input type="password" name="pp_new_pass_2" placeholder="<?= $string['confirmpassword'] ?>" value="" /></td>
+                </tr>
+
+            </table>        
+
+            <br>
+
+            <div class='c'>
+                <input type='submit' class='btn' name="pp_reset" value="<?= $string['reset'] ?>" />
+            </div>
+
+        </form>
+
+    <?php endif; ?>
+    
+</div>

@@ -1,0 +1,103 @@
+<div id='install'>
+    
+    <h1 class='c'><?= $string['installpp'] ?></h1>
+    
+    <form action='' method='post'>
+        
+        <?= $Portal->displayAnyErrors() ?>
+    
+    <table>
+        
+        <tr>
+            <th colspan='2' style='text-align:center;'><?= $string['adminconfig'] ?></th>
+        </tr>
+        
+        <tr>
+            <td><?= $string['adminemail'] ?></td>
+            <td><input type='text' name='admin_email' /></td>
+        </tr>
+        
+        <tr>
+            <td><?= $string['adminpassword'] ?></td>
+            <td>
+                <input type='password' name='admin_pass' /><br>
+                <small><?= $string['6chars'] ?></small>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><?= $string['confirmpassword'] ?></td>
+            <td><input type='password' name='admin_pass_confirm' /></td>
+        </tr>
+        
+    </table>
+    
+    <p class='c'><input type='submit' name='install' value='<?= $string['install'] ?>' /></p>
+    
+</form>
+    
+</div>
+
+
+<style type="text/css">
+    
+h1
+{
+    text-transform: uppercase;
+}
+    
+.c
+{
+    text-align: center;
+}
+
+.error
+{
+    color: red;
+}
+    
+div#install
+{
+    width:50%;
+    margin:auto;
+    margin-top:200px;
+}
+
+div#install table
+{
+    width: 100%;
+    text-align: left;
+}
+
+div#install table tr th
+{
+    background-color: #006666;
+    color: #fff;
+    font-weight: bold;
+}
+
+div#install table tr td
+{
+    background-color: #fafbfb;
+    padding: 10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+div#install table tr td:first-child
+{
+    width: 25%;
+}
+
+div#install table tr td input
+{
+    width: 50%;
+}
+
+input[type='submit']
+{
+    padding: 10px 20px;
+    font-size: 12pt;
+}
+    
+</style>

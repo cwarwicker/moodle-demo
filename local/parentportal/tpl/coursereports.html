@@ -1,0 +1,32 @@
+<?= $Portal->printUserBar() ?>
+
+<?php if ($Portal->getStudent()): ?>
+
+<?php if ($reports): ?>
+
+<table id='course-reports'>
+    
+    <tr><th><?= $string['name'] ?></th><th><?= $string['setby'] ?></th><th><?= $string['date'] ?></th></tr>
+
+    <?php foreach($reports as $report): ?>
+    <tr>
+        <td><a href="<?= $CFG->wwwroot ?>/blocks/elbp/print.php?plugin=<?= $OBJ->getID() ?>&object=<?= $report->getID() ?>&student=<?= $report->getStudentID() ?>&type=periodical" target="_blank"><?= $report->getName() ?></a></td>
+        <td><?= fullname($report->getCreatedByUser()) ?></td>
+        <td><?= $report->getCreatedDate() ?></td>
+        <td><a href="<?= $CFG->wwwroot ?>/blocks/elbp/print.php?plugin=<?= $OBJ->getID() ?>&object=<?= $report->getID() ?>&student=<?= $report->getStudentID() ?>&type=periodical" target="_blank"><input class='button' type='button' value='<?= $string['view'] ?>' /></a></td>
+    </tr>
+    <?php endforeach; ?>
+    
+<?php else: ?>
+    
+<p class='c'><?= $string['nocoursereports'] ?></p>
+
+<?php endif; ?>
+
+</table>
+
+<?php else: ?>
+
+<p class='c'><?= $string['pleaseselectstudent'] ?></p>
+
+<?php endif; ?>

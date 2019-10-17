@@ -1,0 +1,38 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<table class="elbp_summary_table">
+    <tbody>
+      <tr>
+        <td class="elbp_summary_icon">
+            <img src="<?= $Portal->www ?>pix/elbp/icon.png" alt="<?= $obj->getTitle() ?>">
+        </td>
+        <td class="elbp_summary_right" style="padding-left:5%;">
+            <?= $string['myaccessreq'] ?>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<p><small><?= $string['mostrecentrequests'] ?>:</small></p>
+
+<table class="elbp_summary_table">
+    <tbody>
+              
+        <?php if ($requests): ?>
+        <?php foreach( $requests as $request ): ?>
+        
+        <tr>
+            <td><?= date('d-m-Y', $request->requesttime) ?></td>
+            <td><?= $request->firstname ?> <?= $request->lastname ?></td>
+            <td><img style="width:16px" src="<?= $Portal->www ?>/pix/elbp/<?= $Portal->getStatusImage($request->status) ?>" title="<?= $Portal->getStatusName($request->status) ?>" /></td>
+        </tr>
+        
+        <?php endforeach; ?>
+        <?php else: ?>
+        <tr>
+            <td colspan="2" class="elbp_centre"><?= $string['norequestsfound'] ?></td>
+        </tr>
+        <?php endif; ?>
+        
+    </tbody>
+  </table>

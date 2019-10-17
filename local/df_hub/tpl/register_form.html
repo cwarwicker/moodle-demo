@@ -1,0 +1,104 @@
+<form id='df_site_registration_form' action="<?= $CFG->wwwroot ?>/local/df_hub/index.php" method="post">
+    <table>
+
+        <tr><th><?= \get_string('registrationinfo', 'local_df_hub') ?></th></tr>
+
+        <tr>
+            <td><strong><?= \get_string('registration:url', 'local_df_hub') ?></strong></td>
+            <td>
+                <input type='hidden' name='url' value='<?= $site->getURL() ?>' />
+                <span><?= $site->getURL() ?></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong><?= \get_string('system:moodleversion', 'local_df_hub') ?></strong> <img src='<?= \df_image_url("help") ?>' alt='info' title='<?= \df_html(\get_string('system:moodleversion:info', 'local_df_hub')) ?>' /></td>
+            <td>
+                <input type='hidden' name='moodleversion' value='<?= $site->getVersion() ?>' />
+                <input type='hidden' name='moodlebuild' value='<?= $site->getBuild() ?>' />
+                <span><?= $site->getVersion() ?> (<?= $site->getBuild() ?>)</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong><?= \get_string('registration:sitename', 'local_df_hub') ?></strong></td>
+            <td><input type='text' name='name' value='<?= \df_html($site->getTitle()) ?>' /></td>
+        </tr>
+
+        <tr>
+            <td><strong><?= \get_string('registration:privacy', 'local_df_hub') ?></strong></td>
+            <td>
+                <select name='privacy'>
+                    <option value='0' <?= ( $site->getPrivacy() == 0 ) ? 'selected' : '' ?> ><?= \get_string('registration:privacy:allgood', 'local_df_hub') ?></option>
+                    <option value='1' <?= ( $site->getPrivacy() == 1 ) ? 'selected' : '' ?>><?= \get_string('registration:privacy:donttalktome', 'local_df_hub') ?></option>
+                    <option value='2' <?= ( $site->getPrivacy() == 2 ) ? 'selected' : '' ?>><?= \get_string('registration:privacy:nameonly', 'local_df_hub') ?></option>
+                    <option value='3' <?= ( $site->getPrivacy() == 3 ) ? 'selected' : '' ?>><?= \get_string('registration:privacy:hidemyass', 'local_df_hub') ?></option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong><?= \get_string('registration:admin', 'local_df_hub') ?></strong></td>
+            <td><input type='text' name='admin' value='<?= $site->getAdminName() ?>' /></td>
+        </tr>
+
+        <tr>
+            <td><strong><?= \get_string('registration:adminemail', 'local_df_hub') ?></strong></td>
+            <td><input type='text' name='email' value='<?= $site->getAdminEmail() ?>' /></td>
+        </tr>
+
+        <tr>
+          <td><strong><?= \get_string('registration:notifications', 'local_df_hub') ?></strong></td>
+          <td>
+            <select name='notifications'>
+              <option value='0' <?= ( $site->getNotifications() == 0 ) ? 'selected' : '' ?> ><?= \get_string('registration:notifications:no', 'local_df_hub') ?></option>
+              <option value='1' <?= ( $site->getNotifications() == 1 ) ? 'selected' : '' ?> ><?= \get_string('registration:notifications:yes', 'local_df_hub') ?></option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2"><hr></td>
+        </tr>
+
+        <tr><th><?= \get_string('registration:plugins', 'local_df_hub') ?></th></tr>
+
+
+        <?php if($site->getInstalledPlugins()): ?>
+          <?php foreach($site->getInstalledPlugins() as $component): ?>
+            <tr class="plugin">
+              <td><strong><?= $component?></strong></td>
+              <td>
+                <input type='hidden' name='plugin[<?= $component ?>][version]' value='<?= $site->getPluginVersion($component) ?>' />
+                <br>
+                <table>
+                  <tr>
+                    <td><?= \get_string('version') ?></td>
+                    <td><?= $site->getPluginVersion($component) ?></td>
+                  </tr>
+                  <?php foreach($site->getPluginStats($component) as $stat => $value): ?>
+                    <tr>
+                      <td><?= \get_string('stat:'.$stat, $component) ?></td>
+                      <td>
+                        <input type='hidden' name='plugin[<?= $component ?>][stats][<?= $stat ?>]' value='<?= $value ?>' />
+                        <?= $value ?>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </table>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        <?php endif; ?>
+
+        <tr>
+            <td>
+                <input type='submit' name='register' class='btn btn-primary' value='<?= ($site->isRegistered()) ? \get_string('updateregistration', 'local_df_hub') : \get_string('registeryoursite', 'local_df_hub') ?>' />
+            </td>
+            <td>
+                <span id='gt_reg_site_output'></span>
+            </td>
+        </tr>
+
+    </table>
+</form>

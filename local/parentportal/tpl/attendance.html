@@ -1,0 +1,11 @@
+<?= $Portal->printUserBar() ?>
+
+<?php if ($Portal->getStudent()): ?>
+
+<?= $ATT->ajax('load_display_type', array('studentID' => $ATT->getStudentID(), 'type' => 'simple'), $ELBP) ?>
+
+<?php else: ?>
+
+<p class='c'><?= $string['pleaseselectstudent'] ?></p>
+
+<?php endif; ?>

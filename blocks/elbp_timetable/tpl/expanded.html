@@ -1,0 +1,11 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<ul class="elbp_tabrow">
+    <li class="elbp_view_link selected"><a href="#" onclick="ELBP.Timetable.load_display('fullcalendar', this);"><?= get_string('fullcalendar', 'block_elbp_timetable') ?></a></li>
+</ul>
+
+<div id="elbp_timetable_content">
+    <script>
+        ELBP.Timetable.load_display('fullcalendar');
+    </script>
+</div>

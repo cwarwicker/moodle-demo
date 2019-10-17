@@ -1,0 +1,41 @@
+<?php if(!defined('PARENT_PORTAL')) exit; ?>
+<?php if (!$Portal->isAdmin()) exit ?>
+<div class='statsBox'>
+    <div class='statsHeading'>
+        <b><?= $string['summary'] ?></b>
+    </div>
+    <div class='statsContent'>
+        <table>
+            <tr>
+                <td><?= $string['numofppaccounts'] ?></td>
+                <td><?= $numberOfAccounts ?></td>
+                <td class='space'></td>
+                <td><?= $string['numofactiveppaccounts'] ?></td>
+                <td><?= $numberOfActiveAccounts ?> <small>(<?= round(($numberOfActiveAccounts / $numberOfAccounts) * 100, 1) ?>%)</small></td>
+            </tr>
+            <tr>
+                <td><?= $string['numofstudaccounts'] ?></td>
+                <td><?= $numberOfStudents ?></td>
+                <td class='space'></td>
+                <td><?= $string['numofstudaccountswithlinks'] ?></td>
+                <td><?= $numberOfStudentsWithLinks ?> <small>(<?= round( ( $numberOfStudentsWithLinks / $numberOfStudents ) * 100, 1 ) ?>%)</small></td>
+            </tr>
+            <tr>
+                <td><?= $string['ttlaccessreq'] ?></td>
+                <td><?= $numberOfRequests ?></td>
+            </tr>
+            <tr>
+                <td class='indent'><?= $string['pendingreq'] ?></td>
+                <td><?= $numberOfPendingRequests ?></td>
+            </tr>
+            <tr>
+                <td class='indent'><?= $string['confirmedreq'] ?></td>
+                <td><?= $numberOfConfirmedRequests ?></td>
+            </tr>
+            <tr class='noBorder'>
+                <td class='indent'><?= $string['rejcanreq'] ?></td>
+                <td><?= $numberOfRejectedCancelledRequests ?></td>
+            </tr>
+        </table>
+    </div>
+</div>
