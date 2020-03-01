@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ local/df_url/router.php?qs=$1 [L,B,QSA,NC]
